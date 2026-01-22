@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<body>
+<form onsubmit="return validateForm()">
+  Name: <input id="name"><br>
+  Email: <input id="email"><br>
+  Message: <textarea id="msg"></textarea><br>
+  <button type="submit">Send</button>
+</form>
+
+<script>
+function validateForm() {
+  let name = document.getElementById("name").value.trim();
+  let email = document.getElementById("email").value.trim();
+  let msg = document.getElementById("msg").value.trim();
+  let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+
+  if (!name || !email.match(emailPattern) || !msg) {
+    alert("Please fill all fields correctly!");
+    return false;
+  }
+  alert("Form submitted!");
+  return true;
+}
+</script>
+</body>
+</html>
